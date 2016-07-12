@@ -60,7 +60,7 @@ var useMsg = function(data) {
             qClass('.subm1 span').innerHTML = '查询';
         }
     } else {
-            qClass('.errMsg-span').innerHTML = '查询失败，请稍后重试';
+            qClass('.errMsg-span').innerHTML = '查询失败，请核对信息稍后重试';
             qClass('.errMsg').style.visibility = 'visible';
             back();
             canSumb = false;
