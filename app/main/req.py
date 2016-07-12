@@ -33,7 +33,7 @@ def parse_html(html):
 
 def return_info(info_list):
     info = {'status': 1}
-    if u'暂无录取信息' in info_list:
+    if u'暂无录取信息' in info_list or not info_list:
         info['data'] = {}
         info['message'] = u'暂无录取信息'
     elif len(info_list) == 11:
@@ -76,3 +76,8 @@ def get_info(code, sfzh):
         info_list = ['connect error']
     info = return_info(info_list)
     return info
+
+if __name__ == '__main__':
+    code = '0702111935'
+    sfzh = '1963'
+    print get_info(code, sfzh)
