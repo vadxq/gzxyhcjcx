@@ -25,6 +25,6 @@ def accept_info():
         'message': 'bad request2'
     })
 
-@main.route('/api/info', methods=['GET'])
+@main.route('/', methods=['GET'])
 def index():
     return redirect('/index.html')
