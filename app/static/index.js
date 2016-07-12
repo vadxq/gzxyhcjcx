@@ -47,9 +47,7 @@ var testSumb = function() {
 var useMsg = function(data) {
     var queryData = JSON.parse(data);
     if (queryData.status === 1) {
-        if (queryData.message === "success") {
-            qClass('.errMsg').style.visibility = 'visible';
-        } else {
+        if (queryData.message === "获取录取信息成功") {
             qClass('.aftermsg').style.display = 'block';
             qClass('.query').style.display = 'none';
             qClass('.footer').style.display = 'none';
@@ -57,6 +55,9 @@ var useMsg = function(data) {
                 el: '#afmsg',
                 data: queryData.data
             })
+        } else {
+            qClass('.errMsg').style.visibility = 'visible';
+            qClass('.subm1 span').innerHTML = '查询';
         }
     } else {
             qClass('.errMsg-span').innerHTML = '查询失败，请稍后重试';
@@ -92,8 +93,8 @@ var query = function() {
     if (canSumb) {
         qClass('.subm1 span').innerHTML = '正在查询...';
         var data = {
-            code: qClass('.name-in').value,
-            sfzh: qClass('.zkzh').value
+            sfzh: qClass('.name-in').value,
+            code: qClass('.zkzh').value
         }
         var queryData = JSON.stringify(data);
         ajax('post', '/api/info', useMsg, queryData)
@@ -103,6 +104,7 @@ var back = function () {
     qClass('.query').style.display = 'block';
     qClass('.aftermsg').style.display = 'none';
     qClass('.footer').style.display = "block";
+    qClass('.subm1 span').innerHTML = '查询';
 };
 qClass('.zkzh').addEventListener('blur', testZkzh, false);
 qClass('.name-in').addEventListener('blur', testName, false);
