@@ -16,14 +16,18 @@ def get_html(code, sfzh):
 
 
 def parse_html(html):
+    # print html
     info_list = []
     soup = BeautifulSoup(html, 'html.parser')
     td = soup.find_all('td')
+    validate = u'考生姓名' in soup.find('table',id='dlt',height='100%').get_text()
+    if not validate:
+        info_list = ['login fail']
     table = soup.find('table', id='dlt', height=60)
     for td in table.find_all('tr'):
         for tt in td.find_all('td'):
             ss = tt.string.strip().split(u'：')
-            info_list.append(ss[-1].strip())
+            info_list.append(ss[-1].strip(' '))
     return info_list
 
 
@@ -51,10 +55,14 @@ def return_info(info_list):
         info['data'] = {}
         info['message'] = u'timeout'
         info['status'] = 0
-    else:
+    elif 'login fail' in info_list:
         info['status'] = 0
         info['data'] = {}
         info['message'] = u'考生号和身份证号不匹配'
+    else:
+        info['status'] = 0
+        info['data'] = {}
+        info['message'] = u'获取录取信息失败'
     return info
 
 
