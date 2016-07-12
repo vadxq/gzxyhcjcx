@@ -196,9 +196,10 @@ body {
 }
 
 .sup {
-    width: 5rem;
-    margin-left: 2.8rem;
+    width: 4rem;
+    margin-left: 3.2rem;
     display: inline-block;
+    font-size: 0.77rem;
 }
 .tix {
     margin-top: 1.4rem;
@@ -216,6 +217,7 @@ body {
     display: inline-block;
     text-align: center;
     margin-left: 0.8rem;
+    font-size: 0.77rem;
 }
 
 footer {
@@ -259,7 +261,7 @@ footer {
 
 @media screen and (min-width:375px) {
     html {
-        font-size: 18px;
+        font-size: 17px;
     }
     .xm,
     .xx,
@@ -270,7 +272,7 @@ footer {
     .tl,
     .yd,
     .xzfy {
-        margin-left: 1.2rem;
+        margin-left: 0.8rem;
     }
 }
 
@@ -457,7 +459,7 @@ footer {
     .tl,
     .yd,
     .xzfy {
-        margin-left: 12rem;
+        margin-left: 5rem;
     }
 }
 
