@@ -1,6 +1,6 @@
 from flask import jsonify
 from flask import request
-
+from flask import redirect
 
 from .req import get_info
 from . import main
@@ -24,3 +24,7 @@ def accept_info():
         'status': 0,
         'message': 'bad request2'
     })
+
+@main.route('/api/info', methods=['GET'])
+def index():
+    return redirect('/index.html')
